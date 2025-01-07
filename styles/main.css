@@ -285,12 +285,22 @@ svg * {
   }
 }
 
+html.is-lock {
+  overflow: hidden;
+}
+
 body {
   font-size: clamp(0.875rem, 0.8112745098rem + 0.2614379085vw, 1.125rem);
+  display: flex;
+  flex-direction: column;
   font-family: var(--font-family-base);
   letter-spacing: -0.03em;
   color: var(--color-grey-50);
   background-color: var(--color-dark);
+}
+
+main {
+  flex-grow: 1;
 }
 
 h1,
@@ -305,7 +315,7 @@ h5,
 .h5,
 h6,
 .h6 {
-  color: var(--color-white);
+  color: var(--color-light);
   font-weight: 500;
 }
 
@@ -523,9 +533,24 @@ button[aria-label]::before {
   width: 55%;
 }
 
+.header {
+  position: sticky;
+  z-index: 100;
+  top: 0;
+  animation-name: scrolling-header;
+  animation-fill-mode: both;
+  animation-timeline: scroll();
+  animation-range: 100;
+}
+@keyframes scrolling-header {
+  to {
+    box-shadow: 0 0 1rem 0 var(--color-dark-40);
+  }
+}
 .header__promo {
   padding-block: 1.25rem;
   text-align: center;
+  background-color: var(--color-dark);
   border-bottom: var(--border);
 }
 @media (width <= 47.99875rem) {
