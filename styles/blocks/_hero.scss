@@ -2,9 +2,11 @@
 
 .hero {
   &__main {
-    display: grid;
-    grid-template-columns: 60% auto;
-    grid-template-areas: "body resourses-preview" "metrics resourses-preview";
+    @include tabler-above {
+      display: grid;
+      grid-template-columns: 60% auto;
+      grid-template-areas: "body resourses-preview" "metrics resourses-preview";
+    }
   }
 
   &__body {
@@ -17,6 +19,12 @@
       padding-top: rem(100);
       padding-right: rem(40);
     }
+
+    @include tablet {
+      padding-right: 0;
+      padding-top: rem(40);
+      padding-bottom: rem(30);
+    }
   }
 
   &__subtitle {
@@ -27,17 +35,36 @@
 
     &:not(:last-child) {
       margin-bottom: rem(30);
+
+      @include mobile {
+        margin-bottom: rem(14);
+      }
     }
   }
 
   &__title {
     margin-bottom: rem(20);
+
+    @include mobile {
+      margin-bottom: rem(10);
+    }
   }
 
   &__metrics {
     grid-area: metrics;
-    border-top: var(--border);
+
+    @include tablet-above {
+      border-top: var(--border);
+    }
+
+    @include tablet {
+      &::before {
+        width: 100vw;
+        right: calc(var(--container-padding-x) * -1);
+      }
+    }
   }
+
   &__resourses-preview {
     grid-area: resourses-preview;
     padding-left: rem(80);
@@ -49,6 +76,11 @@
     @include laptop {
       padding-left: rem(50);
       padding-bottom: rem(50);
+    }
+
+    @include tablet {
+      width: 100vw;
+      margin-left: calc(var(--container-padding-x) * -1);
     }
   }
 
