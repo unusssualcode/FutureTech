@@ -26,14 +26,27 @@ class Tabs {
       this.selectors.content
     );
 
-    this.state = {
+    this.state = this.getProxyState({
       activeTabIndex: [...this.buttonElements].findIndex((buttonElement) =>
         buttonElement.classList.contains(this.stateClasses.isActive)
       ),
-    };
+    });
 
     this.limitTabIndex = this.buttonElements.length - 1;
     this.bindEvents();
+  }
+
+  getProxyState(initialState) {
+    return new Proxy(initialState, {
+      get: (target, prop) => {
+        return target[prop];
+      },
+      set: (target, prop, value) => {
+        target[prop] = value;
+        this.updateUI();
+        return true;
+      },
+    });
   }
 
   updateUI() {
@@ -62,7 +75,6 @@ class Tabs {
   activateTab(newTabIndex) {
     this.state.activeTabIndex = newTabIndex;
     this.buttonElements[newTabIndex].focus();
-    this.updateUI();
   }
 
   previousTab = () => {
@@ -93,7 +105,6 @@ class Tabs {
 
   onButtonClick(buttonIndex) {
     this.state.activeTabIndex = buttonIndex;
-    this.updateUI();
   }
 
   onKeyDown = (event) => {
@@ -110,7 +121,7 @@ class Tabs {
 
     if (isMacHomeKey) {
       this.firstTab();
-      this.updateUI();
+
       return;
     }
 
@@ -118,11 +129,10 @@ class Tabs {
 
     if (isMacEndKey) {
       this.lastTab();
-      this.updateUI();
+
       return;
     }
     action?.();
-    this.updateUI();
   };
 
   bindEvents() {
