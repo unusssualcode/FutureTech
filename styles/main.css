@@ -1178,6 +1178,11 @@ button[aria-label]::before {
   display: grid;
   row-gap: clamp(1.5rem, 1.0857843137rem + 1.6993464052vw, 3.125rem);
 }
+@media (width <= 63.99875rem) {
+  .card__preview-main {
+    justify-content: start;
+  }
+}
 .card__preview-icon {
   width: clamp(3.125rem, 2.6470588235rem + 1.9607843137vw, 5rem);
 }
@@ -1190,7 +1195,7 @@ button[aria-label]::before {
 }
 @media (width <= 63.99875rem) {
   .card__body {
-    padding: 1.875rem 1rem;
+    padding: 1.875rem 0;
   }
 }
 .card__grid {
@@ -1206,12 +1211,16 @@ button[aria-label]::before {
   }
 }
 .card__grid--2-cols-alt {
-  grid-template-columns: auto 1fr;
   gap: 1.875rem 1.25rem;
 }
 @media (width <= 90.06125rem) {
   .card__grid--2-cols-alt {
     gap: 1.5rem 1rem;
+  }
+}
+@media (width > 47.99875rem) {
+  .card__grid--2-cols-alt {
+    grid-template-columns: auto 1fr;
   }
 }
 .card__cell {
@@ -1243,6 +1252,10 @@ button[aria-label]::before {
   .card__cell-image {
     border-radius: 0.625rem;
   }
+}
+.card__cell-subtitle {
+  font: inherit;
+  color: inherit;
 }
 .card__cell-link {
   grid-area: link;
@@ -1439,7 +1452,7 @@ button[aria-label]::before {
 }
 
 .download-info {
-  display: grid;
+  display: inline-grid;
   grid-template-columns: 1fr auto;
   align-items: center;
   column-gap: 3.125rem;
