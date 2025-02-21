@@ -21,13 +21,17 @@
 
     .bordered-grid__item {
       &:nth-child(3n - 2),
-      :nth-child(3n - 1) {
+      &:nth-child(3n - 1) {
         padding-right: var(--itemPaddingX);
         border-right: var(--border);
       }
 
+      &:nth-child(3n - 1) {
+        @include full-vw-centered-line(bottom);
+      }
+
       &:nth-child(3n - 1),
-      :nth-child(3n) {
+      &:nth-child(3n) {
         padding-left: var(--itemPaddingX);
       }
     }

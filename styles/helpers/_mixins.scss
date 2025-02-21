@@ -67,5 +67,12 @@
   position: relative;
 
   &::before {
+    @include abs-x;
+
+    content: "";
+    #{$property}: 0;
+    width: 100vw;
+    height: rem(1);
+    background-color: var(--color-dark-15);
   }
 }
