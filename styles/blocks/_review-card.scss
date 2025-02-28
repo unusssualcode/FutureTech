@@ -19,7 +19,15 @@
   }
 
   &__body {
+    position: relative;
     padding: fluid(30, 20);
     padding-top: fluid(50, 30);
+    color: var(--color-light);
+    text-align: center;
+  }
+
+  &__rating-view {
+    @include abs-center;
+    top: 0;
   }
 }
