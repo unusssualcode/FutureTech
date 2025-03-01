@@ -5,6 +5,7 @@
   column-gap: rem(7);
   padding: rem(10) rem(16);
   border-radius: rem(100);
+  background-color: var(--color-dark);
   border: var(--border);
 
   @include laptop {
@@ -17,6 +18,10 @@
 
     @include square(var(--size));
     background: url("../../icons/reviews/star.svg") center/contain no-repeat;
+
+    &.is-active {
+      background-image: url("../../icons/reviews/star_yellow.svg");
+    }
 
     @include laptop {
       --size: #{rem(20)};
