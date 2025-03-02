@@ -66,4 +66,23 @@
       grid-area: description;
     }
   }
+
+  &__list {
+    display: grid;
+    // grid-template-columns: repeat(3, 1fr);
+    gap: rem(20);
+    padding: rem(20);
+    background-color: var(--color-dark);
+    border-radius: rem(12);
+
+    @include laptop {
+      gap: rem(10);
+      padding: rem(10);
+      border-radius: rem(10);
+    }
+
+    @include mobile-above {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
 }
