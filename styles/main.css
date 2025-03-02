@@ -146,7 +146,7 @@ label {
   (за исключением тех, у которых уже указан
   атрибут fill со значением 'none' или начинается с 'url')
  */
-:where([fill]:not([fill=none], [fill^=url])) {
+:where([fill]:not([fill="none"], [fill^="url"])) {
   fill: currentColor;
 }
 
@@ -155,7 +155,7 @@ label {
   (за исключением тех, у которых уже указан
   атрибут stroke со значением 'none')
  */
-:where([stroke]:not([stroke=none], [stroke^=url])) {
+:where([stroke]:not([stroke="none"], [stroke^="url"])) {
   stroke: currentColor;
 }
 
@@ -343,7 +343,8 @@ svg * {
   translate: 0 -50%;
   content: "";
   right: 0;
-  background: url("../../icons/arrow-top-right_black.svg") center no-repeat var(--color-accent);
+  background: url("../../icons/arrow-top-right_black.svg") center no-repeat
+    var(--color-accent);
   border-radius: 50%;
 }
 
@@ -707,11 +708,14 @@ button[aria-label]::before {
 
 .badges {
   display: inline-flex;
-  padding: clamp(0.125rem, 0.0931372549rem + 0.1307189542vw, 0.25rem) clamp(0.625rem, 0.5612745098rem + 0.2614379085vw, 0.875rem);
+  padding: clamp(0.125rem, 0.0931372549rem + 0.1307189542vw, 0.25rem)
+    clamp(0.625rem, 0.5612745098rem + 0.2614379085vw, 0.875rem);
   font-size: 1rem;
   color: var(--color-light);
   border: 0.0625rem solid transparent;
-  background: linear-gradient(var(--color-dark-10), var(--color-dark-10)) padding-box, var(--gradient) border-box;
+  background: linear-gradient(var(--color-dark-10), var(--color-dark-10))
+      padding-box,
+    var(--gradient) border-box;
   border-radius: 0.375rem;
 }
 @media (width <= 90.06125rem) {
@@ -1024,7 +1028,7 @@ button[aria-label]::before {
   grid-area: resourses-preview;
   padding-left: 5rem;
   padding-bottom: 5rem;
-  background: url("../../images/resourses-preview/bg.png") 0 0/cover no-repeat;
+  background: url("../../images/resourses-preview/bg.png") 0 0 / cover no-repeat;
 }
 @media (width > 63.99875rem) {
   .hero__resourses-preview {
@@ -1155,11 +1159,13 @@ button[aria-label]::before {
     grid-template-columns: 38% auto;
   }
 }
-.card__preview, .card__body {
+.card__preview,
+.card__body {
   padding: 5rem;
 }
 @media (width <= 90.06125rem) {
-  .card__preview, .card__body {
+  .card__preview,
+  .card__body {
     padding: 3.75rem;
   }
 }
@@ -1501,7 +1507,8 @@ button[aria-label]::before {
   }
 }
 @media (width > 63.99875rem) {
-  .bordered-grid--3-cols .bordered-grid__item:nth-child(3n-2), .bordered-grid--3-cols .bordered-grid__item:nth-child(3n-1) {
+  .bordered-grid--3-cols .bordered-grid__item:nth-child(3n-2),
+  .bordered-grid--3-cols .bordered-grid__item:nth-child(3n-1) {
     padding-right: var(--itemPaddingX);
     border-right: var(--border);
   }
@@ -1518,7 +1525,8 @@ button[aria-label]::before {
     height: 0.0625rem;
     background-color: var(--color-dark-15);
   }
-  .bordered-grid--3-cols .bordered-grid__item:nth-child(3n-1), .bordered-grid--3-cols .bordered-grid__item:nth-child(3n) {
+  .bordered-grid--3-cols .bordered-grid__item:nth-child(3n-1),
+  .bordered-grid--3-cols .bordered-grid__item:nth-child(3n) {
     padding-left: var(--itemPaddingX);
   }
 }
@@ -1693,10 +1701,10 @@ button[aria-label]::before {
   }
 }
 
-.header,
+/* .header,
 main > *:not(:last-child),
 .footer {
   display: none !important;
-}
+} */
 
 /*# sourceMappingURL=main.css.map */
